@@ -19,20 +19,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--field-green);
       font-family: Arial, sans-serif;
+      background: url('blurred_background.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
 
     #loading {
       font-size: 1.5rem;
       text-align: center;
       padding: 1rem 2rem;
-      background-color: var(--sun-gold);
+      background-color: rgba(219, 183, 81, 0.85); /* sun-gold with transparency */
       color: var(--deep-green);
       border: 2px solid rgba(0, 0, 0, 0.1);
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       animation: fadeInOut 0.6s ease-in-out infinite;
+      backdrop-filter: blur(2px);
     }
 
     @keyframes fadeInOut {
