@@ -2,22 +2,28 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
+  <!-- Meta viewport 確保手機裝置可以正確縮放 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>懿昇土地藝術生活訂購單</title>
   <style>
     html, body {
       height: 100%;
       margin: 0;
-      /* 使用 Flex 置中 */
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #f9f9f9; /* 可視需求調整背景色 */
+      background-color: #f0f0f0; /* 全站的背景色 */
+      font-family: Arial, sans-serif;
     }
+    /* 主訊息區塊設置凸顯效果 */
     #loading {
       font-size: 1.5rem;
       text-align: center;
-      /* 加入淡入淡出動畫 */
+      padding: 1rem 2rem;
+      background-color: #fff;  /* #loading的底色 */
+      border: 2px solid #e0e0e0; /* 輕微邊框 */
+      border-radius: 8px;       /* 圓角效果 */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* 陰影效果凸顯元素 */
       animation: fadeInOut 2s ease-in-out infinite;
     }
     @keyframes fadeInOut {
@@ -26,6 +32,13 @@
       }
       50% {
         opacity: 1;
+      }
+    }
+    /* 響應式設計：手機尺寸下字體微調 */
+    @media (max-width: 480px) {
+      #loading {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
       }
     }
   </style>
