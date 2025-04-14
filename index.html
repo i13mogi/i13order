@@ -1,14 +1,32 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>懿昇土地藝術生活訂購單_載入中...</title>
+  <title>懿昇土地藝術生活訂購單</title>
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      /* 使用 Flex 置中 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f9f9f9; /* 可視需求調整背景色 */
+    }
     #loading {
       font-size: 1.5rem;
       text-align: center;
-      margin-top: 2rem;
+      /* 加入淡入淡出動畫 */
+      animation: fadeInOut 2s ease-in-out infinite;
+    }
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 1;
+      }
     }
   </style>
 </head>
