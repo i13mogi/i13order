@@ -1,49 +1,186 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
-  <!-- Meta viewport 確保手機裝置可以正確縮放 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>懿昇土地藝術生活訂購單</title>
   <style>
-    html, body {
-      height: 100%;
+    body {
       margin: 0;
+      background: #fdf6e3;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      background-color: #f0f0f0; /* 全站的背景色 */
-      font-family: Arial, sans-serif;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
     }
-    /* 主訊息區塊設置凸顯效果 */
+
+    .dog {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: #fff1d6;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .ear {
+      width: 60px;
+      height: 80px;
+      background: #d29b74;
+      position: absolute;
+      top: 10px;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .ear.left {
+      left: -20px;
+      transform: rotate(-20deg);
+    }
+
+    .ear.right {
+      right: -20px;
+      transform: rotate(20deg);
+    }
+
+    .eye {
+      width: 20px;
+      height: 20px;
+      background: #333;
+      border-radius: 50%;
+      position: absolute;
+      top: 70px;
+    }
+
+    .eye.left {
+      left: 60px;
+    }
+
+    .eye.right {
+      right: 60px;
+    }
+
+    .nose {
+      width: 20px;
+      height: 20px;
+      background: #000;
+      border-radius: 50%;
+      position: absolute;
+      top: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .mouth {
+      width: 50px;
+      height: 30px;
+      border-bottom: 4px solid #000;
+      border-radius: 0 0 50px 50px;
+      position: absolute;
+      top: 125px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tongue {
+      width: 20px;
+      height: 25px;
+      background: #ff6b6b;
+      border-radius: 50%;
+      position: absolute;
+      top: 140px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tail {
+      width: 60px;
+      height: 20px;
+      background: #d29b74;
+      position: absolute;
+      right: -30px;
+      bottom: 60px;
+      border-radius: 10px;
+      transform-origin: left center;
+      animation: wag 0.5s ease-in-out infinite;
+    }
+
+    @keyframes wag {
+      0% { transform: rotate(20deg); }
+      50% { transform: rotate(-20deg); }
+      100% { transform: rotate(20deg); }
+    }
+
     #loading {
-      font-size: 1.5rem;
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      animation: blink 0.8s ease-in-out infinite;
+      color: #444;
       text-align: center;
-      padding: 1rem 2rem;
-      background-color: #fff;  /* #loading的底色 */
-      border: 2px solid #e0e0e0; /* 輕微邊框 */
-      border-radius: 8px;       /* 圓角效果 */
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* 陰影效果凸顯元素 */
-      animation: fadeInOut 0.8s ease-in-out infinite;
+      padding: 0 1rem;
+      max-width: 90vw;
     }
-    @keyframes fadeInOut {
-      0%, 100% {
-        opacity: 0.2;
-      }
-      50% {
-        opacity: 1;
-      }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
     }
-    /* 響應式設計：手機尺寸下字體微調 */
+
     @media (max-width: 480px) {
-      #loading {
-        font-size: 1.2rem;
-        padding: 0.8rem 1.5rem;
+      .dog {
+        width: 150px;
+        height: 150px;
+      }
+
+      .eye {
+        width: 16px;
+        height: 16px;
+        top: 55px;
+      }
+
+      .eye.left { left: 45px; }
+      .eye.right { right: 45px; }
+
+      .nose {
+        width: 16px;
+        height: 16px;
+        top: 90px;
+      }
+
+      .mouth {
+        width: 40px;
+        height: 25px;
+        top: 105px;
+      }
+
+      .tongue {
+        width: 16px;
+        height: 20px;
+        top: 118px;
+      }
+
+      .tail {
+        width: 50px;
+        height: 16px;
+        right: -25px;
+        bottom: 45px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="dog">
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+    <div class="mouth"></div>
+    <div class="tongue"></div>
+    <div class="tail"></div>
+  </div>
   <div id="loading">載入懿昇，慢活一生...</div>
 
   <script>
