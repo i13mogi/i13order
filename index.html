@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Demo</title>
+  <style>
+    /* 簡單的 loading 風格 */
+    #loading {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading 狀態顯示區 -->
+  <div id="loading">Loading, 請稍候...</div>
+  
+  <!-- 用於顯示後端 API 回傳資料 -->
+  <div id="data"></div>
+
+  <script>
+    // 當頁面載入完成後，發起 AJAX 請求
+    window.addEventListener("load", function() {
+      // 設定目標 API URL (請替換成你 Google App Engine 的 URL)
+      const apiUrl = 'https://order013.de.r.appspot.com/';
+      
+      // 使用 fetch API 發送請求
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok " + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // 請求成功後隱藏 loading 訊息
+          document.getElementById("loading").style.display = "none";
+          // 將取得的資料展示在網頁上
+          document.getElementById("data").textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+          document.getElementById("loading").textContent = "發生錯誤：" + error.message;
+          console.error("Fetch error:", error);
+        });
+    });
+  </script>
+</body>
+</html>
